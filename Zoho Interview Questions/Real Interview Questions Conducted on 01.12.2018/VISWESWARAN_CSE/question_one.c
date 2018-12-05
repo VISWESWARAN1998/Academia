@@ -58,7 +58,9 @@ void replace(char* string, int size)
 		if (isdigit(current_char)) check_and_display(&checker, current_char - '0', 1);
 		else check_and_display(&checker, current_char, 0);
 	}
-
+	// Free the dynamically allocated array
+	free(checker.array);
+	free(checker.is_integer);
 }
 
 
@@ -75,5 +77,7 @@ int main()
 		string[size - 1] = ch;
 	}
 	replace(string, size);
+	// Free the dynamically allocated array
+	free(string);
 	getchar();
 }
